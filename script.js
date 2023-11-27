@@ -27,6 +27,9 @@ const calculateNegative = () => {
 //  1- firts map to get inputmatrix which is our original matrix 
 //  2 - second one is for each row the we calculated each cell image negetive
   console.log("calculated values = " , resultMatrix)
+
+  displayMatrix('resultMatrix', resultMatrix)
+
 };
 
 const getMatrixValues = (tableId) => {
@@ -56,4 +59,30 @@ const getMatrixValues = (tableId) => {
   console.log("input values = " , values);
   return values;
 };
+
+//  for dispaly result matrix
+
+const displayMatrix = (tableId , resultMatrix)=>{
+    const table = document.getElementById(tableId)
+    console.log("final result",  table) 
+
+
+    for (let i = 0; i < resultMatrix.length; i++) {
+        const row = table.insertRow(i)
+        for (let j = 0; j <resultMatrix[i].length; j++) {
+            const cell = row.insertCell(j)
+
+            cell.appendChild(document.createTextNode(resultMatrix[i][j]))
+
+            // console.log(`final col ${j}`,  cell)
+            
+            
+        }
+        // console.log(`final row ${i}`,  row) 
+        
+    }
+
+
+}
+
 initializeMatrix("matrix", 4, 4);
