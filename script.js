@@ -17,4 +17,20 @@ const initializeMatrix = (tableId,rows,cols)=>{
     // console.log(table)
 
 }
+
+
+const calculateNegative = ()=>{
+
+    const inputMatrix = getMatrixValues('matrix')
+}
+
+
+const getMatrixValues=(tableId)=>{
+    const table = document.getElementById(tableId)
+    // const values =[]
+    console.log(table)
+
+
+
+}
 initializeMatrix('matrix',4,4)
