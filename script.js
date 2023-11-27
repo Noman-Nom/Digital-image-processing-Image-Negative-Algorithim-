@@ -20,9 +20,22 @@ const calculateNegative = () => {
   // we are getting inputMatrix sucessfuly
   // console.log("input ", inputMatrix)
 
-  const resultMatrix = inputMatrix.map((row) =>
-    row.map((value) => (value = 15 - value))
-  );
+  const resultMatrix = inputMatrix.map((row)=>(
+
+       
+    row.map((value)=>{
+
+        console.log( `15 - ${value} = ${15-value}` )
+        value = 15- value
+
+        return value
+    }
+    
+    )
+  ))
+
+
+  
 //    here we calculated image negetive by using doubel map function 
 //  1- firts map to get inputmatrix which is our original matrix 
 //  2 - second one is for each row the we calculated each cell image negetive
@@ -50,6 +63,7 @@ const getMatrixValues = (tableId) => {
       //  acces input in current row current cell
       const input = table.rows[i].cells[j].querySelector("input");
 
+
       // store all input in  values array  in
 
       values[i][j] = parseInt(input.value);
@@ -66,6 +80,12 @@ const displayMatrix = (tableId , resultMatrix)=>{
     const table = document.getElementById(tableId)
     console.log("final result",  table) 
 
+    //  clearing prev content
+
+    while (table.rows.length > 0) {
+        table.deleteRow(0);
+    }
+
 
     for (let i = 0; i < resultMatrix.length; i++) {
         const row = table.insertRow(i)
@@ -73,6 +93,8 @@ const displayMatrix = (tableId , resultMatrix)=>{
             const cell = row.insertCell(j)
 
             cell.appendChild(document.createTextNode(resultMatrix[i][j]))
+
+            // console.log(` 15 - ${j} = ${15-j}`)
 
             // console.log(`final col ${j}`,  cell)
             
