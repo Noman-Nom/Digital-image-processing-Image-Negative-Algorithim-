@@ -30,14 +30,32 @@ const getMatrixValues=(tableId)=>{
     const values =[]    // initialize emty arry to store rows and cols 
 
     // console.log(table.rows)
+    console.log(table.cells)    
+    
 
     for (let i = 0; i < table.rows.length; i++) {
         values[i] = []  // initialize emty arry to store rows values 
 
         // console.log(values)
 
+        //  apply loop to  extract cols in current rows
+
+        for (let j = 0; j < table.rows[i].cells.length; j++) {
+
+            //  acces input in current row current cell
+            const input = table.rows[i].cells[j].querySelector('input')
+
+            values[i][j] = parseInt(input.value)
+
+
+            
+        }
+
         
     }
+
+
+    console.log(values)
 
 
 
