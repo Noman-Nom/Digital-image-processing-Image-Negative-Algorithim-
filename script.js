@@ -1,63 +1,56 @@
-const initializeMatrix = (tableId,rows,cols)=>{
-    const table = document.getElementById(tableId)
-    for (let i = 0; i <rows; i++) {
-    const row = table.insertRow(i)
+const initializeMatrix = (tableId, rows, cols) => {
+  const table = document.getElementById(tableId);
+  for (let i = 0; i < rows; i++) {
+    const row = table.insertRow(i);
     for (let j = 0; j < cols; j++) {
-        const cell = row.insertCell(j)
-        const input = document.createElement('input')
-        input.type = 'number';
-            input.min = '0';
-            input.max = '15';
-            input.value = '0';
-            cell.appendChild(input)
-        
-        }
-        
+      const cell = row.insertCell(j);
+      const input = document.createElement("input");
+      input.type = "number";
+      input.min = "0";
+      input.max = "15";
+      input.value = "0";
+      cell.appendChild(input);
     }
-    // console.log(table)
+  }
+  // console.log(table)
+};
 
-}
+const calculateNegative = () => {
+  const inputMatrix = getMatrixValues("matrix");
+  // we are getting inputMatrix sucessfuly
+  // console.log("input ", inputMatrix)
 
+  const resultMatrix = inputMatrix.map((row) =>
+    row.map((value) => (value = 15 - value))
+  );
+  console.log(resultMatrix)
+};
 
-const calculateNegative = ()=>{
+const getMatrixValues = (tableId) => {
+  const table = document.getElementById(tableId);
+  const values = []; // initialize emty arry to store rows and cols
 
-    const inputMatrix = getMatrixValues('matrix')
-}
+  // console.log(table.rows)
+//   console.log(table.cells);
 
+  for (let i = 0; i < table.rows.length; i++) {
+    values[i] = []; // initialize emty arry to store rows values
 
-const getMatrixValues=(tableId)=>{
-    const table = document.getElementById(tableId)
-    const values =[]    // initialize emty arry to store rows and cols 
+    // console.log(values)
 
-    // console.log(table.rows)
-    console.log(table.cells)    
-    
+    //  apply loop to  extract cols in current rows
 
-    for (let i = 0; i < table.rows.length; i++) {
-        values[i] = []  // initialize emty arry to store rows values 
+    for (let j = 0; j < table.rows[i].cells.length; j++) {
+      //  acces input in current row current cell
+      const input = table.rows[i].cells[j].querySelector("input");
 
-        // console.log(values)
+      // store all input in  values array  in
 
-        //  apply loop to  extract cols in current rows
-
-        for (let j = 0; j < table.rows[i].cells.length; j++) {
-
-            //  acces input in current row current cell
-            const input = table.rows[i].cells[j].querySelector('input')
-
-            values[i][j] = parseInt(input.value)
-
-
-            
-        }
-
-        
+      values[i][j] = parseInt(input.value);
     }
+  }
 
-
-    console.log(values)
-
-
-
-}
-initializeMatrix('matrix',4,4)
+//   console.log(values);
+  return values;
+};
+initializeMatrix("matrix", 4, 4);
