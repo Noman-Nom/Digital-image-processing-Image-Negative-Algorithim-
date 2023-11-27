@@ -23,7 +23,7 @@ const calculateNegative = () => {
   const resultMatrix = inputMatrix.map((row) =>
     row.map((value) => (value = 15 - value))
   );
-  console.log(resultMatrix)
+  console.log("calculated values = " , resultMatrix)
 };
 
 const getMatrixValues = (tableId) => {
@@ -50,7 +50,7 @@ const getMatrixValues = (tableId) => {
     }
   }
 
-//   console.log(values);
+  console.log("input values = " , values);
   return values;
 };
 initializeMatrix("matrix", 4, 4);
