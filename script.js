@@ -27,8 +27,17 @@ const calculateNegative = ()=>{
 
 const getMatrixValues=(tableId)=>{
     const table = document.getElementById(tableId)
-    // const values =[]
-    console.log(table)
+    const values =[]    // initialize emty arry to store rows and cols 
+
+    // console.log(table.rows)
+
+    for (let i = 0; i < table.rows.length; i++) {
+        values[i] = []  // initialize emty arry to store rows values 
+
+        // console.log(values)
+
+        
+    }
 
 
 
