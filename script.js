@@ -23,6 +23,9 @@ const calculateNegative = () => {
   const resultMatrix = inputMatrix.map((row) =>
     row.map((value) => (value = 15 - value))
   );
+//    here we calculated image negetive by using doubel map function 
+//  1- firts map to get inputmatrix which is our original matrix 
+//  2 - second one is for each row the we calculated each cell image negetive
   console.log("calculated values = " , resultMatrix)
 };
 
